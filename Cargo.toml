@@ -1,0 +1,37 @@
+[package]
+name = "nodenuke"
+version = "0.1.0"
+edition = "2024"
+description = "A fast, interactive TUI for finding and deleting node_modules directories"
+license = "MIT"
+repository = "https://github.com/shacript/nodenuke"
+homepage = "https://github.com/shacript/nodenuke"
+documentation = "https://github.com/shacript/nodenuke#readme"
+readme = "README.md"
+keywords = ["node", "node_modules", "cleanup", "tui", "cli"]
+categories = ["command-line-utilities", "filesystem"]
+exclude = [
+    ".github/",
+    "dist-workspace.toml",
+]
+
+[[bin]]
+name = "nodenuke"
+path = "src/main.rs"
+
+[dependencies]
+crossterm = "0.29.0"
+humansize = "2.1.3"
+jwalk = "0.8.1"
+ratatui = "0.30.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
