@@ -12,7 +12,7 @@
 //! ## Layout (normal completion)
 //!
 //! ```text
-//! ┌─ 💥 NodeNuke  ·  Complete ────────────────────────────────────┐
+//! ┌─ 💥 NodeKill  ·  Complete ────────────────────────────────────┐
 //! │                                                               │
 //! │   Removed   12  directories                                   │
 //! │   Freed     2.3 GB                                            │
@@ -29,7 +29,7 @@
 //! ## Layout (nothing found / nothing deleted)
 //!
 //! ```text
-//! ┌─ 💥 NodeNuke  ·  Complete ────────────────────────────────────┐
+//! ┌─ 💥 NodeKill  ·  Complete ────────────────────────────────────┐
 //! │                                                               │
 //! │   No node_modules found in the specified path.                │
 //! │                                                               │
@@ -75,7 +75,7 @@ pub fn render_done(f: &mut Frame, app: &App) {
         .borders(Borders::ALL)
         .border_style(Style::default().fg(Color::DarkGray))
         .title(Span::styled(
-            " 💥 NodeNuke  ·  Complete ",
+            " 💥 NodeKill  ·  Complete ",
             Style::default()
                 .fg(Color::Green)
                 .add_modifier(Modifier::BOLD),

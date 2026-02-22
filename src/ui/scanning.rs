@@ -8,7 +8,7 @@
 //! ## Layout
 //!
 //! ```text
-//! ┌─ 💥 NodeNuke  ⠹  Scanning… ──────────────────────────────────┐
+//! ┌─ 💥 NodeKill  ⠹  Scanning… ──────────────────────────────────┐
 //! │                                                               │
 //! │   Found  12  node_modules so far…                            │
 //! │   Currently scanning:                                         │
@@ -70,7 +70,7 @@ pub fn render_scanning(f: &mut Frame, app: &App) {
         .borders(ratatui::widgets::Borders::ALL)
         .border_style(Style::default().fg(Color::DarkGray))
         .title(Span::styled(
-            format!(" 💥 NodeNuke  {}  Scanning… ", spinner),
+            format!(" 💥 NodeKill  {}  Scanning… ", spinner),
             Style::default()
                 .fg(Color::Yellow)
                 .add_modifier(Modifier::BOLD),
