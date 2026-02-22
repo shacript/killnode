@@ -70,7 +70,7 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
     // The spinner makes it immediately obvious that the app is busy.
     let outer = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::DarkGray))
+        .border_style(Style::default().fg(Color::Gray))
         .title(Span::styled(
             format!(" 💥 killnode  {}  Deleting… ", spinner),
             Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
@@ -105,10 +105,10 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
         .block(
             Block::default()
                 .borders(Borders::ALL)
-                .border_style(Style::default().fg(Color::DarkGray))
+                .border_style(Style::default().fg(Color::Gray))
                 .title(Span::styled(
                     " Progress ",
-                    Style::default().fg(Color::DarkGray),
+                    Style::default().fg(Color::Gray),
                 )),
         )
         // Red fill on a dark-gray track so the remaining work is visible
@@ -116,7 +116,7 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
         .gauge_style(
             Style::default()
                 .fg(Color::Red)
-                .bg(Color::DarkGray)
+                .bg(Color::Gray)
                 .add_modifier(Modifier::BOLD),
         )
         .ratio(ratio)
@@ -131,7 +131,7 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
     f.render_widget(
         Paragraph::new(Line::from(Span::styled(
             "  Removing:",
-            Style::default().fg(Color::DarkGray),
+            Style::default().fg(Color::Gray),
         ))),
         chunks[3],
     );

@@ -100,7 +100,7 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
     // were found and how much space they occupy in total.
     let outer = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::DarkGray))
+        .border_style(Style::default().fg(Color::Gray))
         .title(Span::styled(
             format!(" 💥 killnode  ·  {count} found  ·  {total_size_str} total "),
             Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
@@ -125,7 +125,7 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
     // layout stays correct on any screen size. PATH gets whatever is left after
     // the fixed-width columns and their separators are accounted for.
     let header_style = Style::default()
-        .fg(Color::DarkGray)
+        .fg(Color::Gray)
         .add_modifier(Modifier::BOLD);
     let list_width = chunks[1].width.saturating_sub(2) as usize;
     let size_col_w: usize = 10;
@@ -187,12 +187,12 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
                     )
                 }
             } else {
-                ("[ ]", Style::default().fg(Color::DarkGray))
+                ("[ ]", Style::default().fg(Color::Gray))
             };
 
             // Path text is always white and readable — sensitive entries are
             // no longer dimmed since they are now fully selectable.
-            let path_style = Style::default().fg(Color::White);
+            let path_style = Style::default().fg(Color::Reset);
 
             // Sensitive entries reserve 2 characters at the start of the path
             // column for the "⚠ " prefix. The actual path is truncated to the
@@ -245,7 +245,7 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
 
     let list = ratatui::widgets::List::new(items).highlight_style(
         Style::default()
-            .bg(Color::DarkGray)
+            .bg(Color::Gray)
             .add_modifier(Modifier::BOLD),
     );
 

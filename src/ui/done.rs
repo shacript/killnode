@@ -73,7 +73,7 @@ pub fn render_done(f: &mut Frame, app: &App) {
     // the red used while the app is active, so it reads as "all done, relax".
     let outer = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::DarkGray))
+        .border_style(Style::default().fg(Color::Gray))
         .title(Span::styled(
             " 💥 killnode  ·  Complete ",
             Style::default()
@@ -224,7 +224,7 @@ fn build_summary(app: &App) -> Vec<Line<'static>> {
                     app.delete_errors.len().to_string(),
                     Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
                 ),
-                Span::styled("  (see errors below)", Style::default().fg(Color::DarkGray)),
+                Span::styled("  (see errors below)", Style::default().fg(Color::Gray)),
             ])
         },
     ]

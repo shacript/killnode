@@ -49,7 +49,7 @@ pub fn render_welcome(f: &mut Frame, app: &App) {
     // Outer border with the app title in the top-left corner.
     let outer = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::DarkGray))
+        .border_style(Style::default().fg(Color::Gray))
         .title(Span::styled(
             " 💥 killnode ",
             Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
@@ -80,10 +80,10 @@ pub fn render_welcome(f: &mut Frame, app: &App) {
     .block(
         Block::default()
             .borders(Borders::ALL)
-            .border_style(Style::default().fg(Color::DarkGray))
+            .border_style(Style::default().fg(Color::Gray))
             .title(Span::styled(
                 " Scan root ",
-                Style::default().fg(Color::DarkGray),
+                Style::default().fg(Color::Gray),
             )),
     );
     f.render_widget(root, chunks[0]);

@@ -105,20 +105,19 @@ pub fn help_bar<'a>(pairs: &[(&'a str, &'a str)]) -> Paragraph<'a> {
         spans.push(Span::styled(
             format!(" {key} "),
             Style::default()
-                .fg(Color::Black)
-                .bg(Color::DarkGray)
+                .add_modifier(Modifier::REVERSED)
                 .add_modifier(Modifier::BOLD),
         ));
         spans.push(Span::styled(
             format!(" {desc}"),
-            Style::default().fg(Color::DarkGray),
+            Style::default().fg(Color::Reset),
         ));
     }
 
     Paragraph::new(Line::from(spans)).block(
         Block::default()
             .borders(Borders::TOP)
-            .border_style(Style::default().fg(Color::DarkGray)),
+            .border_style(Style::default().fg(Color::Reset)),
     )
 }
 
