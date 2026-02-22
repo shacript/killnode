@@ -36,20 +36,6 @@ brew tap shacript/killnode
 brew install killnode
 ```
 
-### cargo
-
-If you have a Rust toolchain installed:
-
-```sh
-cargo install killnode
-```
-
-### Shell script — macOS and Linux
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/shacript/killnode/main/install.sh | sh
-```
-
 ### Pre-built binaries
 
 Download the binary for your platform from the
