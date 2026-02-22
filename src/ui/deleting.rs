@@ -115,11 +115,7 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
         )
         // Red fill on a dark-gray track so the remaining work is visible
         // even when only a small fraction has been completed.
-        .gauge_style(
-            Style::default()
-                .fg(Color::Red)
-                .add_modifier(Modifier::BOLD),
-        )
+        .gauge_style(Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))
         .ratio(ratio)
         .label(label);
 
