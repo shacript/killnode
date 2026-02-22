@@ -3,6 +3,8 @@
 Find and delete `node_modules` directories across your entire machine — fast,
 safe, and without leaving your terminal.
 
+![demo](https://github.com/user-attachments/assets/de4cab51-b7ca-4a4f-b202-00b088d4e460)
+
 **Inspired by [npkill](https://github.com/voidcosmos/npkill) but rewritten from scratch in Rust, with a focus on speed, safety, and a polished user experience.**
 
 **Personal note:** 
