@@ -1,6 +1,6 @@
 //! # Welcome screen
 //!
-//! The first thing the user sees when nodekill starts. It is intentionally
+//! The first thing the user sees when killnode starts. It is intentionally
 //! minimal — just the scan root path and two key hints. The goal is to give
 //! the user a chance to confirm they are about to scan the right directory
 //! before any filesystem work begins.
@@ -8,7 +8,7 @@
 //! ## Layout
 //!
 //! ```text
-//! ┌─ 💥 NodeKill ──────────────────────────────────────────────┐
+//! ┌─ 💥 killnode ──────────────────────────────────────────────┐
 //! │ ┌─ Scan root ───────────────────────────────────────────┐  │
 //! │ │  /home/alice/projects                                 │  │
 //! │ └───────────────────────────────────────────────────────┘  │
@@ -51,7 +51,7 @@ pub fn render_welcome(f: &mut Frame, app: &App) {
         .borders(Borders::ALL)
         .border_style(Style::default().fg(Color::DarkGray))
         .title(Span::styled(
-            " 💥 NodeKill ",
+            " 💥 killnode ",
             Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
         ));
     f.render_widget(outer, area);

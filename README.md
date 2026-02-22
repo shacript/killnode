@@ -1,4 +1,4 @@
-# nodekill 💣
+# killnode 💣
 
 Find and delete `node_modules` directories across your entire machine — fast,
 safe, and without leaving your terminal.
@@ -17,21 +17,21 @@ safe, and without leaving your terminal.
 The fastest way to try it. Works on any machine with Node.js installed.
 
 ```sh
-npx nodekill
-npx nodekill ~/projects
+npx killnode
+npx killnode ~/projects
 ```
 
 ### npm — global install
 
 ```sh
-npm install -g nodekill
+npm install -g killnode
 ```
 
 ### Homebrew — macOS and Linux
 
 ```sh
-brew tap shacript/nodekill
-brew install nodekill
+brew tap shacript/killnode
+brew install killnode
 ```
 
 ### cargo
@@ -39,41 +39,41 @@ brew install nodekill
 If you have a Rust toolchain installed:
 
 ```sh
-cargo install nodekill
+cargo install killnode
 ```
 
 ### Shell script — macOS and Linux
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/shacript/nodekill/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/shacript/killnode/main/install.sh | sh
 ```
 
 ### Pre-built binaries
 
 Download the binary for your platform from the
-[Releases](https://github.com/shacript/nodekill/releases) page and put it
+[Releases](https://github.com/shacript/killnode/releases) page and put it
 somewhere on your `PATH`.
 
 | Platform | File |
 |---|---|
-| macOS — Apple Silicon | `nodekill-aarch64-apple-darwin` |
-| macOS — Intel | `nodekill-x86_64-apple-darwin` |
-| Linux — x64 | `nodekill-x86_64-unknown-linux-musl` |
-| Linux — arm64 | `nodekill-aarch64-unknown-linux-musl` |
-| Windows — x64 | `nodekill-x86_64-pc-windows-msvc.exe` |
+| macOS — Apple Silicon | `killnode-aarch64-apple-darwin` |
+| macOS — Intel | `killnode-x86_64-apple-darwin` |
+| Linux — x64 | `killnode-x86_64-unknown-linux-musl` |
+| Linux — arm64 | `killnode-aarch64-unknown-linux-musl` |
+| Windows — x64 | `killnode-x86_64-pc-windows-msvc.exe` |
 
 ---
 
 ## Usage
 
 ```sh
-nodekill                # scan the current directory
-nodekill ~/projects     # scan a specific directory
-nodekill --help         # print usage
-nodekill --version      # print version
+killnode                # scan the current directory
+killnode ~/projects     # scan a specific directory
+killnode --help         # print usage
+killnode --version      # print version
 ```
 
-nodekill scans the path you give it (or `.` if you don't give one), finds
+killnode scans the path you give it (or `.` if you don't give one), finds
 every `node_modules` directory, and presents them in a list. From there you
 pick what to delete and confirm. That's it.
 
@@ -81,7 +81,7 @@ pick what to delete and confirm. That's it.
 
 ## Sensitive paths
 
-nodekill automatically detects directories that look like they might be managed
+killnode automatically detects directories that look like they might be managed
 by an application or the operating system. These entries are marked with a red
 `⚠` in front of their path and are **not** pre-selected.
 
@@ -118,10 +118,10 @@ something load-bearing.
 You need a [Rust toolchain](https://rustup.rs) (stable, 1.85 or newer).
 
 ```sh
-git clone https://github.com/shacript/nodekill
-cd nodekill
+git clone https://github.com/shacript/killnode
+cd killnode
 cargo build --release
-./target/release/nodekill
+./target/release/killnode
 ```
 
 To install it to your Cargo bin directory:

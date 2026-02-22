@@ -14,7 +14,7 @@
 //! ## List layout
 //!
 //! ```text
-//! ┌─ 💥 NodeKill  ·  14 found  ·  2.3 GB total ─────────────────────────┐
+//! ┌─ 💥 killnode  ·  14 found  ·  2.3 GB total ─────────────────────────┐
 //! │  SEL   PATH                                   MODIFIED         SIZE  │
 //! │  [✓]   …/my-app/node_modules                   3d ago        450 MB  │
 //! │  [✓]   …/old-project/node_modules              2mo ago       210 MB  │
@@ -102,7 +102,7 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
         .borders(Borders::ALL)
         .border_style(Style::default().fg(Color::DarkGray))
         .title(Span::styled(
-            format!(" 💥 NodeKill  ·  {count} found  ·  {total_size_str} total "),
+            format!(" 💥 killnode  ·  {count} found  ·  {total_size_str} total "),
             Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
         ));
     f.render_widget(outer, area);

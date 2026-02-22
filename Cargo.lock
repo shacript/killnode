@@ -589,6 +589,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "killnode"
+version = "0.1.0"
+dependencies = [
+ "crossterm",
+ "humansize",
+ "jwalk",
+ "ratatui",
+]
+
+[[package]]
 name = "lab"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -723,16 +733,6 @@ dependencies = [
  "cfg_aliases",
  "libc",
  "memoffset",
-]
-
-[[package]]
-name = "nodekill"
-version = "0.1.0"
-dependencies = [
- "crossterm",
- "humansize",
- "jwalk",
- "ratatui",
 ]
 
 [[package]]

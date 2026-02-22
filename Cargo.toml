@@ -1,12 +1,12 @@
 [package]
-name = "nodekill"
+name = "killnode"
 version = "0.1.0"
 edition = "2024"
 description = "A fast, interactive TUI for finding and deleting node_modules directories"
 license = "MIT"
-repository = "https://github.com/shacript/nodekill"
-homepage = "https://github.com/shacript/nodekill"
-documentation = "https://github.com/shacript/nodekill#readme"
+repository = "https://github.com/shacript/killnode"
+homepage = "https://github.com/shacript/killnode"
+documentation = "https://github.com/shacript/killnode#readme"
 readme = "README.md"
 keywords = ["node", "node_modules", "cleanup", "tui", "cli"]
 categories = ["command-line-utilities", "filesystem"]
@@ -16,7 +16,7 @@ exclude = [
 ]
 
 [[bin]]
-name = "nodekill"
+name = "killnode"
 path = "src/main.rs"
 
 [dependencies]

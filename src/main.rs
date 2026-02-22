@@ -33,10 +33,10 @@ mod ui;
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 const HELP: &str = "\
-nodekill — find and delete node_modules directories
+killnode — find and delete node_modules directories
 
 USAGE:
-    nodekill [OPTIONS] [DIRECTORY]
+    killnode [OPTIONS] [DIRECTORY]
 
 ARGS:
     [DIRECTORY]    Directory to scan (defaults to current directory)
@@ -172,7 +172,7 @@ fn run(terminal: &mut Terminal<CrosstermBackend<Stdout>>) -> io::Result<()> {
 fn main() -> io::Result<()> {
     // Handle informational flags before touching the terminal.
     // These are intentionally checked before any terminal setup so that
-    // `nodekill --help | cat` works as expected.
+    // `killnode --help | cat` works as expected.
     for arg in std::env::args().skip(1) {
         match arg.as_str() {
             "-h" | "--help" => {
@@ -180,7 +180,7 @@ fn main() -> io::Result<()> {
                 return Ok(());
             }
             "-V" | "--version" => {
-                println!("nodekill {VERSION}");
+                println!("killnode {VERSION}");
                 return Ok(());
             }
             _ => {}
