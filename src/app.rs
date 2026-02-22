@@ -226,7 +226,7 @@ impl App {
     ///
     /// Does nothing if no scan is active or if the scan already finished.
     pub fn process_scan_messages(&mut self) {
-        let is_done = self.scan.as_ref().map_or(true, |s| s.done);
+        let is_done = self.scan.as_ref().is_none_or(|s| s.done);
         if is_done {
             return;
         }
@@ -320,10 +320,10 @@ impl App {
     /// Sensitive entries can be selected, but they are never pre-selected
     /// automatically — the user must explicitly choose to include them.
     pub fn toggle_selected(&mut self) {
-        if let Some(i) = self.list_state.selected() {
-            if let Some(entry) = self.entries.get_mut(i) {
-                entry.selected = !entry.selected;
-            }
+        if let Some(i) = self.list_state.selected()
+            && let Some(entry) = self.entries.get_mut(i)
+        {
+            entry.selected = !entry.selected;
         }
     }
 

@@ -234,10 +234,10 @@ fn is_sensitive_dir(path: impl AsRef<Path>) -> bool {
     // name before ".app").
     if let Some(idx) = norm.find("/applications/") {
         let rest = &norm[idx + "/applications/".len()..];
-        if let Some(app_end) = rest.find(".app/") {
-            if !rest[..app_end].contains('/') {
-                return true;
-            }
+        if let Some(app_end) = rest.find(".app/")
+            && !rest[..app_end].contains('/')
+        {
+            return true;
         }
     }
 
@@ -332,12 +332,9 @@ fn scan_thread(root: String, tx: Sender<ScanMsg>, current_path: Arc<Mutex<String
             // children of the current directory. We will report the directory
             // itself (in the loop below) but we don't want to walk inside it —
             // that would both be slow and produce spurious nested results.
-            for res in children.iter_mut() {
-                if let Ok(de) = res {
-                    if de.file_name().to_string_lossy() == "node_modules" && de.file_type().is_dir()
-                    {
-                        de.read_children_path = None;
-                    }
+            for de in children.iter_mut().flatten() {
+                if de.file_name().to_string_lossy() == "node_modules" && de.file_type().is_dir() {
+                    de.read_children_path = None;
                 }
             }
         }
