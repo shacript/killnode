@@ -70,7 +70,7 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
     // The spinner makes it immediately obvious that the app is busy.
     let outer = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::Gray))
+        .border_style(Style::default().fg(Color::Reset))
         .title(Span::styled(
             format!(" 💥 killnode  {}  Deleting… ", spinner),
             Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
@@ -105,10 +105,12 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
         .block(
             Block::default()
                 .borders(Borders::ALL)
-                .border_style(Style::default().fg(Color::Gray))
+                .border_style(Style::default().fg(Color::Reset))
                 .title(Span::styled(
                     " Progress ",
-                    Style::default().fg(Color::Gray),
+                    Style::default()
+                        .fg(Color::Reset)
+                        .add_modifier(Modifier::DIM),
                 )),
         )
         // Red fill on a dark-gray track so the remaining work is visible
@@ -116,7 +118,6 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
         .gauge_style(
             Style::default()
                 .fg(Color::Red)
-                .bg(Color::Gray)
                 .add_modifier(Modifier::BOLD),
         )
         .ratio(ratio)
@@ -131,7 +132,9 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
     f.render_widget(
         Paragraph::new(Line::from(Span::styled(
             "  Removing:",
-            Style::default().fg(Color::Gray),
+            Style::default()
+                .fg(Color::Reset)
+                .add_modifier(Modifier::DIM),
         ))),
         chunks[3],
     );
@@ -151,7 +154,9 @@ pub fn render_deleting(f: &mut Frame, app: &App) {
     f.render_widget(
         Paragraph::new(Line::from(Span::styled(
             format!("  {display_path}"),
-            Style::default().fg(Color::Gray),
+            Style::default()
+                .fg(Color::Reset)
+                .add_modifier(Modifier::DIM),
         ))),
         chunks[4],
     );

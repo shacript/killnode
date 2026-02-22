@@ -68,7 +68,7 @@ pub fn render_scanning(f: &mut Frame, app: &App) {
     // making it visually distinct from the red title on the Welcome screen.
     let outer = ratatui::widgets::Block::default()
         .borders(ratatui::widgets::Borders::ALL)
-        .border_style(Style::default().fg(Color::Gray))
+        .border_style(Style::default().fg(Color::Reset))
         .title(Span::styled(
             format!(" 💥 killnode  {}  Scanning… ", spinner),
             Style::default()
@@ -97,7 +97,12 @@ pub fn render_scanning(f: &mut Frame, app: &App) {
     // surrounding text is dimmed so the number is the clear focal point.
     f.render_widget(
         Paragraph::new(Line::from(vec![
-            Span::styled("  Found  ", Style::default().fg(Color::Gray)),
+            Span::styled(
+                "  Found  ",
+                Style::default()
+                    .fg(Color::Reset)
+                    .add_modifier(Modifier::DIM),
+            ),
             Span::styled(
                 count.to_string(),
                 Style::default()
@@ -106,7 +111,9 @@ pub fn render_scanning(f: &mut Frame, app: &App) {
             ),
             Span::styled(
                 "  node_modules so far…",
-                Style::default().fg(Color::Gray),
+                Style::default()
+                    .fg(Color::Reset)
+                    .add_modifier(Modifier::DIM),
             ),
         ])),
         chunks[0],
@@ -120,7 +127,9 @@ pub fn render_scanning(f: &mut Frame, app: &App) {
     f.render_widget(
         Paragraph::new(Line::from(Span::styled(
             "  Currently scanning:",
-            Style::default().fg(Color::Gray),
+            Style::default()
+                .fg(Color::Reset)
+                .add_modifier(Modifier::DIM),
         ))),
         chunks[1],
     );
@@ -137,7 +146,9 @@ pub fn render_scanning(f: &mut Frame, app: &App) {
     f.render_widget(
         Paragraph::new(Line::from(Span::styled(
             format!("  {display_path}"),
-            Style::default().fg(Color::Gray),
+            Style::default()
+                .fg(Color::Reset)
+                .add_modifier(Modifier::DIM),
         ))),
         chunks[2],
     );

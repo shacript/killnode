@@ -100,7 +100,7 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
     // were found and how much space they occupy in total.
     let outer = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::Gray))
+        .border_style(Style::default().fg(Color::Reset))
         .title(Span::styled(
             format!(" 💥 killnode  ·  {count} found  ·  {total_size_str} total "),
             Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
@@ -125,7 +125,7 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
     // layout stays correct on any screen size. PATH gets whatever is left after
     // the fixed-width columns and their separators are accounted for.
     let header_style = Style::default()
-        .fg(Color::Gray)
+        .fg(Color::Reset)
         .add_modifier(Modifier::BOLD);
     let list_width = chunks[1].width.saturating_sub(2) as usize;
     let size_col_w: usize = 10;
@@ -187,7 +187,12 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
                     )
                 }
             } else {
-                ("[ ]", Style::default().fg(Color::Gray))
+                (
+                    "[ ]",
+                    Style::default()
+                        .fg(Color::Reset)
+                        .add_modifier(Modifier::DIM),
+                )
             };
 
             // Path text is always white and readable — sensitive entries are
@@ -243,11 +248,8 @@ pub fn render_list(f: &mut Frame, app: &mut App) {
         })
         .collect();
 
-    let list = ratatui::widgets::List::new(items).highlight_style(
-        Style::default()
-            .bg(Color::Gray)
-            .add_modifier(Modifier::BOLD),
-    );
+    let list = ratatui::widgets::List::new(items)
+        .highlight_style(Style::default().add_modifier(Modifier::REVERSED));
 
     f.render_stateful_widget(list, chunks[1], &mut app.list_state);
 
@@ -396,19 +398,34 @@ fn render_confirm_popup(f: &mut Frame, app: &App, area: Rect) {
     // ── Summary ───────────────────────────────────────────────────────────────
     f.render_widget(
         Paragraph::new(Line::from(vec![
-            Span::styled("  Delete  ", Style::default().fg(Color::Gray)),
+            Span::styled(
+                "  Delete  ",
+                Style::default()
+                    .fg(Color::Reset)
+                    .add_modifier(Modifier::DIM),
+            ),
             Span::styled(
                 format!("{selected_count} directories"),
                 Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
             ),
-            Span::styled("  freeing ~", Style::default().fg(Color::Gray)),
+            Span::styled(
+                "  freeing ~",
+                Style::default()
+                    .fg(Color::Reset)
+                    .add_modifier(Modifier::DIM),
+            ),
             Span::styled(
                 selected_size_str,
                 Style::default()
                     .fg(Color::Green)
                     .add_modifier(Modifier::BOLD),
             ),
-            Span::styled("?", Style::default().fg(Color::Gray)),
+            Span::styled(
+                "?",
+                Style::default()
+                    .fg(Color::Reset)
+                    .add_modifier(Modifier::DIM),
+            ),
         ])),
         chunks[0],
     );

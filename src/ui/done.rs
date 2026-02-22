@@ -73,7 +73,7 @@ pub fn render_done(f: &mut Frame, app: &App) {
     // the red used while the app is active, so it reads as "all done, relax".
     let outer = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::Gray))
+        .border_style(Style::default().fg(Color::Reset))
         .title(Span::styled(
             " 💥 killnode  ·  Complete ",
             Style::default()
@@ -191,7 +191,12 @@ fn build_summary(app: &App) -> Vec<Line<'static>> {
         Line::from(""),
         // "Removed  N  directories" — count in green, surrounding text dimmed.
         Line::from(vec![
-            Span::styled("  Removed  ", Style::default().fg(Color::Gray)),
+            Span::styled(
+                "  Removed  ",
+                Style::default()
+                    .fg(Color::Reset)
+                    .add_modifier(Modifier::DIM),
+            ),
             Span::styled(
                 success.to_string(),
                 Style::default()
@@ -201,12 +206,19 @@ fn build_summary(app: &App) -> Vec<Line<'static>> {
             Span::styled(
                 // Proper singular/plural so "1 directory" reads correctly.
                 format!("  director{}", if success == 1 { "y" } else { "ies" }),
-                Style::default().fg(Color::Gray),
+                Style::default()
+                    .fg(Color::Reset)
+                    .add_modifier(Modifier::DIM),
             ),
         ]),
         // "Freed    X.X GB" — size in cyan to match the SIZE column in the list.
         Line::from(vec![
-            Span::styled("  Freed    ", Style::default().fg(Color::Gray)),
+            Span::styled(
+                "  Freed    ",
+                Style::default()
+                    .fg(Color::Reset)
+                    .add_modifier(Modifier::DIM),
+            ),
             Span::styled(
                 freed_str,
                 Style::default()
@@ -219,12 +231,22 @@ fn build_summary(app: &App) -> Vec<Line<'static>> {
             Line::from("")
         } else {
             Line::from(vec![
-                Span::styled("  Failed   ", Style::default().fg(Color::Gray)),
+                Span::styled(
+                    "  Failed   ",
+                    Style::default()
+                        .fg(Color::Reset)
+                        .add_modifier(Modifier::DIM),
+                ),
                 Span::styled(
                     app.delete_errors.len().to_string(),
                     Style::default().fg(Color::Red).add_modifier(Modifier::BOLD),
                 ),
-                Span::styled("  (see errors below)", Style::default().fg(Color::Gray)),
+                Span::styled(
+                    "  (see errors below)",
+                    Style::default()
+                        .fg(Color::Reset)
+                        .add_modifier(Modifier::DIM),
+                ),
             ])
         },
     ]
